@@ -12,7 +12,6 @@ Aucune information n'est à modifier ici :
 
 #include <gtkmm.h>
 #include <vector>
-#include <string>
 
 class Origin_combobox : public Gtk::ComboBox
 {

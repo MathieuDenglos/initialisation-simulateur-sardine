@@ -22,7 +22,6 @@ Window::Window() : main_application_box(Gtk::ORIENTATION_VERTICAL, 12),
                    enter_button("confirmer"),
                    close_button("annuler")
 {
-
     //Définition de la partie pour le combobox du preset
     preset_combo.set_active(0);
     this->on_preset_changed();
@@ -100,6 +99,7 @@ void Window::on_origin_changed()
     destination_combo.change_destination_model(origin_row[origin_combo.get_origin_columns().possible_destinations]);
 }
 
+//Code en charge du lancement du simulateur avec les arguments
 namespace Launch
 {
     void launch_simulator(Window &win, std::stringstream &system_stream)
@@ -108,7 +108,7 @@ namespace Launch
         const char *system_launch = system_stream.str().c_str();
         system(system_launch);
     }
-    //TODO : find the solution to make this work
+
     template <typename arg, typename... args>
     void launch_simulator(Window &win,
                           std::stringstream &system_stream,
@@ -118,7 +118,7 @@ namespace Launch
         system_stream << " --" << argument.first
                       << "=\"" << argument.second
                       << "\"";
-        Launch::launch_simulator(system_stream, argument_list...);
+        Launch::launch_simulator(win, system_stream, argument_list...);
     }
 } // namespace Launch
 
@@ -126,7 +126,8 @@ namespace Launch
 void Window::on_enter()
 {
     //Crée un stringstream avec le chemin vers l'application à lancer
-    std::stringstream system_string("test.exe");
+    std::stringstream system_string;
+    system_string << "test.exe";
 
     //Lance le simulateur avec l'application et les arguments donnés
     Launch::launch_simulator(*this, system_string,

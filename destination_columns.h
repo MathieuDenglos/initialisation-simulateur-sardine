@@ -17,10 +17,10 @@ L'ordre n'a pas d'importance cependant faites attention à donner une valeur à 
 class Destination_columns : public Gtk::TreeModel::ColumnRecord
 {
 public:
-//Toutes les informations nécessaires pour les options
+    //Toutes les informations nécessaires pour les options
     Gtk::TreeModelColumn<std::string> destination_name;
 
-        //Toutes les donnés cachés qui changent selon la destination
+    //Toutes les donnés cachés qui changent selon la destination
 
     //constructeur
     Destination_columns()
@@ -30,7 +30,6 @@ public:
 
         //Rajout des donnés cachés qui changent selon la destination
     }
-
 };
 
 #endif //DESTINATION_COLUMNS_H

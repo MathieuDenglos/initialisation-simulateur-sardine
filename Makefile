@@ -13,7 +13,7 @@ LD=$(TOOLCHAIN)ld
 AR=$(TOOLCHAIN)ar
 PKG_CONFIG=$(TOOLCHAIN)pkg-config
 
-OBJS = main.o toolbar.o file.o window.o user_list.o user_menu.o user_search.o user_assistant.o warn_list.o warn_menu.o warn_assistant.o birthday_window.o birthday_list.o dialog.o months.o
+OBJS = main.o window.o preset_combobox.o origin_combobox.o destination_combobox.o
 FLAGS = $(TERMINAL) -std=c++11 -MMD -ffunction-sections -fdata-sections	
 
 

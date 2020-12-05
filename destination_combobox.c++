@@ -28,7 +28,7 @@ void Destination_combobox::create_destination_list(Origin_combobox &origin_list,
                                                    std::string origin_searched,
                                                    std::vector<std::string> destination_list)
 {
-    //→ vérifier aussi que chaque vecteurs a la même taille
+    //→ vérifier aussi que chaque vecteurs a la même taille ou changer le std::vector<const char*> en un vecteur de struct contenant les informations utiles
 
     //vérifie si la liste des destinations n'est pas vide
     if (!destination_list.size())
